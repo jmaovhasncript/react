@@ -11,42 +11,17 @@
 <div id="root"></div>
 <script type="text/babel">
     /**
-     * shopping app , composing functional components
+     * conditinal rendering , preventing render
      */
 
-    function ShoppingHeader(props){
-        return <div>
-            <h1>{props.header}</h1>
-            <h2>number of items {props.number}</h2>
-        </div>
-    }
-
-    function ShoppingList (props) {
-        return <div>
-            <h1>{props.header}</h1>
-            <ol>
-            <ListItem item={props.items[0]}/>
-            <ListItem item={props.items[1]}/>
-            <ListItem item={props.items[2]}/>
-            </ol>
-        </div>
-    }
-
-    function ListItem(props){
-        return <li>{props.item}</li>
-    }
-
-    function ShoppingApp(){
-        return <div>
-            <ShoppingHeader header="Amazom" number={3}/>
-            <ShoppingList header="food" items={["rice" ,"apple","juice"]}/>
-        </div>
+    function Render(props){
+        return (props.active && <h1>{props.message}</h1>)
     }
 
     ReactDOM.render(
-        <ShoppingApp/>,
+        <Render active={false} message="mohan"/>,
         document.getElementById('root')
-    );
+    )
 
 </script>
 
