@@ -10,21 +10,43 @@
 <body>
 <div id="root"></div>
 <script type="text/babel">
-    /***
-     * functional component uses only properties , always starts with caps
-     * @param props
-     * @returns {XML}
-     * @constructor
+    /**
+     * shopping app , composing functional components
      */
 
-   function HelloWorld(props){
-       return <h1> helllo {props.numberArray[props.index]} </h1>
-   }
+    function ShoppingHeader(props){
+        return <div>
+            <h1>{props.header}</h1>
+            <h2>number of items {props.number}</h2>
+        </div>
+    }
 
-   ReactDOM.render(
-       <HelloWorld index = {4} numberArray ={[1,2,3,5,5]}/>,
-           document.getElementById('root')
-   );
+    function ShoppingList (props) {
+        return <div>
+            <h1>{props.header}</h1>
+            <ol>
+            <ListItem item={props.items[0]}/>
+            <ListItem item={props.items[1]}/>
+            <ListItem item={props.items[2]}/>
+            </ol>
+        </div>
+    }
+
+    function ListItem(props){
+        return <li>{props.item}</li>
+    }
+
+    function ShoppingApp(){
+        return <div>
+            <ShoppingHeader header="Amazom" number={3}/>
+            <ShoppingList header="food" items={["rice" ,"apple","juice"]}/>
+        </div>
+    }
+
+    ReactDOM.render(
+        <ShoppingApp/>,
+        document.getElementById('root')
+    );
 
 </script>
 
