@@ -18,11 +18,11 @@
      */
 
    function HelloWorld(props){
-       return <h1> helllo {props.name} </h1>
+       return <h1> helllo {props.numberArray[props.index]} </h1>
    }
 
    ReactDOM.render(
-       <HelloWorld name="mohan"/>,
+       <HelloWorld index = {4} numberArray ={[1,2,3,5,5]}/>,
            document.getElementById('root')
    );
 
