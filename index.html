@@ -10,10 +10,16 @@
 <body>
 <div id="root"></div>
 <script type="text/babel">
-    ReactDOM.render(
-    <div>Hello World</div>,
-            document.getElementById("root")
+    var num= 0;
+    function updateNumber(){
+        ReactDOM.render(
+        <div>{num++}</div>,
+                document.getElementById("root")
     )
+    }
+
+    setInterval(updateNumber,100)
+
 </script>
 
 </body>
