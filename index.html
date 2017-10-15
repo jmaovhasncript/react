@@ -10,15 +10,21 @@
 <body>
 <div id="root"></div>
 <script type="text/babel">
-    var num= 0;
-    function updateNumber(){
-        ReactDOM.render(
-        <div>{num++}</div>,
-                document.getElementById("root")
-    )
-    }
+    /***
+     * functional component uses only properties , always starts with caps
+     * @param props
+     * @returns {XML}
+     * @constructor
+     */
 
-    setInterval(updateNumber,100)
+   function HelloWorld(props){
+       return <h1> helllo {props.name} </h1>
+   }
+
+   ReactDOM.render(
+       <HelloWorld name="mohan"/>,
+           document.getElementById('root')
+   );
 
 </script>
 
