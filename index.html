@@ -10,18 +10,19 @@
 <body>
 <div id="root"></div>
 <script type="text/babel">
-    /**
-     * conditinal rendering , preventing render
+    /***
+     * class Component 
      */
+ class Welcome extends React.Component{
+     render(){
+         return <h1> Hello World </h1>
+     }
+ }
 
-    function Render(props){
-        return (props.active && <h1>{props.message}</h1>)
-    }
-
-    ReactDOM.render(
-        <Render active={false} message="mohan"/>,
-        document.getElementById('root')
-    )
+ReactDOM.render(
+    <Welcome/>,
+    document.getElementById('root')
+)
 
 </script>
 
