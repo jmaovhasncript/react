@@ -14,13 +14,22 @@
      * class Component
      */
  class Welcome extends React.Component{
+     constructor(props) {
+         super(props)
+         this.state =  {message :"mohan"}
+     }
+
+        componentDidMount(){
+         this.setState({message:"mohan kumar"})
+     }
+
      render(){
-         return <h1> Hello World {this.props.message} </h1>
+         return <h1> Hello World {this.state.message} </h1>
      }
  }
 
 ReactDOM.render(
-    <Welcome message="mohan"/>,
+    <Welcome/>,
     document.getElementById('root')
 )
 
