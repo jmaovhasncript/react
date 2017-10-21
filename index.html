@@ -15,25 +15,31 @@
      * controller comnponents
      */
 
-    class ControlledInput extends React.Component{
+
+    class ControlledSelect extends React.Component{
 
         constructor(props){
             super(props)
-            this.state = {value: ''}
+            this.state = {value: 'apple'}
             this.handleChange = this.handleChange.bind(this)
         }
         handleChange(event){
             this.setState({value: event.target.value})
         }
         render(){
+            var array = ["apple","banana","carrot","donuts"]
             return (
-                    <input type = "text" value = {this.state.value} onChange = {this.handleChange}/>
+                    <select value={this.state.value} onChange={this.handleChange}>
+                        {array.map( (item) =>
+                                <option value = {item}>{item}</option>
+                        )}
+                    </select>
             )
         }
     }
 
     ReactDOM.render(
-        <ControlledInput/>,
+        <ControlledSelect/>,
             document.getElementById('root')
     )
 
