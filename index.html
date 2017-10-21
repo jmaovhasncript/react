@@ -10,35 +10,38 @@
 <body>
 <div id="root"></div>
 <script type="text/babel">
+
     /***
-     * class Component
+     * controller comnponents
      */
-    class Counter extends React.Component{
+
+    class ControlledInput extends React.Component{
+
         constructor(props){
             super(props)
-            this.state = {count:0}
-            //binding is necessary to make `this` point to the correct object
-            this.clickHandler = this.clickHandler.bind(this)
+            this.state = {value: ''}
+            this.handleChange = this.handleChange.bind(this)
         }
-        clickHandler(){
-            //increments the count of the state
-            this.setState((prevState,props) => {
-                return {count: prevState.count + 1}
-            })
+        handleChange(event){
+            this.setState({value: event.target.value})
         }
         render(){
-            //renders a button that displays the state count
-            return <button onClick = {this.clickHandler}>{this.state.count}</button>
+            return (
+                    <input type = "text" value = {this.state.value} onChange = {this.handleChange}/>
+            )
         }
     }
 
     ReactDOM.render(
-            <Counter/>,
-        document.getElementById("root")
+        <ControlledInput/>,
+            document.getElementById('root')
     )
 
 
+
+
 </script>
+
 
 </body>
 </html>
